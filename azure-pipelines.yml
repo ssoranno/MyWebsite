@@ -39,7 +39,7 @@ steps:
   displayName: 'Install prerequisites'
 
 - script: |
-    pushd '$(projectRoot)'
+    cd '$(projectRoot)'
     python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
   displayName: 'Run tests'
 
