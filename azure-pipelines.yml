@@ -40,7 +40,7 @@ steps:
 
 - script: |
     cd '$(projectRoot)'
-    python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
+    python3 manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
   displayName: 'Run tests'
 
 - task: PublishTestResults@2
