@@ -8,21 +8,8 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-strategy:
-  matrix:
-    Python35:
-      PYTHON_VERSION: '3.5'
-    Python36:
-      PYTHON_VERSION: '3.6'
-    Python37:
-      PYTHON_VERSION: '3.7'
-  maxParallel: 3
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '$(PYTHON_VERSION)'
-    architecture: 'x64'
 
 - task: PythonScript@0
   displayName: 'Export project path'
@@ -58,5 +45,5 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFiles: "**/TEST-*.xml"
-    testRunTitle: 'Python $(PYTHON_VERSION)'
+    testRunTitle: 'Python'
   condition: succeededOrFailed()
