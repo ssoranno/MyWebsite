@@ -45,7 +45,9 @@ steps:
     pip install -r requirements.txt
     pip install unittest-xml-reporting
     pip install pipenv
+    echo "here1"
     pipenv shell
+    echo "got here"
   displayName: 'Install prerequisites'
 
 - script: |
