@@ -12,20 +12,18 @@ pool:
 steps:
 
 - script: |
-    python3 -m pip install --upgrade pip setuptools wheel
-    pip3 install -r requirements.txt
-    pip3 install unittest-xml-reporting
-    pip3 install pipenv
+    python -m pip install
+    pip install pipenv
     echo "here1"
     pipenv shell
     echo "got here"
-    python3 --version
+    python --version
     echo "got here2"
   displayName: 'Install prerequisites'
 
 - script: |
     cd 'projecttwo'
-    python3 manage.py runserver
+    python manage.py runserver
 #    python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
   displayName: 'Run site'
 
