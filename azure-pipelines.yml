@@ -12,17 +12,17 @@ pool:
 steps:
 
 - script: |
-    pip install pipenv
+    pip3 install pipenv
     echo "here1"
     pipenv shell
     echo "got here"
-    python --version
+    python3 --version
     echo "got here2"
   displayName: 'Install prerequisites'
 
 - script: |
     cd 'projecttwo'
-    python manage.py runserver
+    python3 manage.py runserver
 #    python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
   displayName: 'Run site'
 
