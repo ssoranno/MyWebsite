@@ -12,7 +12,6 @@ pool:
 steps:
 
 - script: |
-    python -m pip install
     pip install pipenv
     echo "here1"
     pipenv shell
