@@ -11,27 +11,11 @@ pool:
 
 steps:
 
-- task: PythonScript@0
-  displayName: 'Export project path'
-  inputs:
-    scriptSource: 'inline'
-    script: |
-      """Search all subdirectories for `manage.py`."""
-      from glob import iglob
-      from os import path
-      print("hello")
-      # Python >= 3.5
-      manage_py = next(iglob(path.join('**', 'manage.py')), None)
-      if not manage_py:
-          raise SystemExit('Could not find a Django project')
-      project_location = path.dirname(path.abspath(manage_py))
-      print('Found Django project in', project_location)
-      print('##vso[task.setvariable variable=projectRoot]{}'.format(project_location))
-
 - script: |
-    python3 -m pip install --upgrade pip setuptools wheel
-    pip3 install -r requirements.txt
-    pip3 install unittest-xml-reporting
+    python -m pip install --upgrade pip setuptools wheel
+    pip install -r requirements.txt
+    pip install unittest-xml-reporting
+    pip install pipenv
     echo "here1"
     pipenv shell
     echo "got here"
@@ -40,8 +24,8 @@ steps:
   displayName: 'Install prerequisites'
 
 - script: |
-    cd '$(projectRoot)'
-    python3 manage.py runserver
+    cd 'projecttwo'
+    python manage.py runserver
 #    python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
   displayName: 'Run site'
 
