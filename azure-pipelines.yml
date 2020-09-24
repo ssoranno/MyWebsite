@@ -36,7 +36,7 @@ steps:
     echo "here1"
     pipenv shell
     echo "got here"
-    python --version
+    echo python --version
   displayName: 'Install prerequisites'
 
 - script: |
