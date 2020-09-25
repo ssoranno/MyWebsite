@@ -1,0 +1,32 @@
+# Python Django
+# Test a Django project on multiple versions of Python.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- script: |
+    sudo apt-get update
+    sudo apt-get install python3.8
+    python --version
+    python3 --version
+    pip install -r requirements.txt
+  displayName: 'Install prerequisites'
+
+- script: |
+    cd 'projecttwo'
+    python3 manage.py runserver
+#    python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
+  displayName: 'Run site'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: "**/TEST-*.xml"
+    testRunTitle: 'Python'
+  condition: succeededOrFailed()
