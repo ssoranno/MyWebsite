@@ -70,7 +70,7 @@ stages:
     - task: AzureWebApp@1
       displayName: 'Deploy Azure Web App : {{ webAppName }}'
       inputs:
-        azureSubscription: f2c72fb6-a706-4172-9ddb-3108855d8a1c
+        azureSubscription: PortWebSiteConnection
         appName: $(webAppName)
         package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
 
