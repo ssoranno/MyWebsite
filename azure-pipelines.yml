@@ -57,9 +57,9 @@ stages:
     - publish: $(Build.ArtifactStagingDirectory)/Application$(Build.BuildId).zip
       displayName: 'Upload package'
       artifact: drop
-    - script: |
-        sudo ls $(Pipeline.Workspace)/drop
-      displayName: 'view output'
+#    - script: |
+#        sudo ls $(Pipeline.Workspace)/drop
+#      displayName: 'view output'
 
   
     - task: AzureWebApp@1
