@@ -57,6 +57,9 @@ stages:
     - publish: $(Build.ArtifactStagingDirectory)/Application$(Build.BuildId).zip
       displayName: 'Upload package'
       artifact: drop
+    - script: |
+        ls $(Pipeline.Workspace)/drop
+      displayName: 'view output'
 
 - stage: Deploy
   displayName: Deploy Stage
