@@ -58,7 +58,7 @@ stages:
       displayName: 'Upload package'
       artifact: drop
     - script: |
-        ls $(Pipeline.Workspace)/drop
+        sudo ls $(Pipeline.Workspace)/drop
       displayName: 'view output'
 
 - stage: Deploy
