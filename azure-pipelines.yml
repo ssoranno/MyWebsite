@@ -13,13 +13,10 @@ steps:
 
 - script: |
     sudo apt-get update
+    sudo apt-get install python3.8
+    python --version
     python3 --version
-    sudo pip3 install pipenv
-    echo "here1"
-    pipenv shell
-    echo "got here"
-    python3 --version
-    echo "got here2"
+    pip install -r requirements.txt
   displayName: 'Install prerequisites'
 
 - script: |
