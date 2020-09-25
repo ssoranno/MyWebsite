@@ -21,13 +21,13 @@ steps:
     python3 --version
     ls
     pip3 install -r requirements.txt
+    pip3 install unittest-xml-reporting
   displayName: 'Install prerequisites'
 
 - script: |
     cd 'projecttwo'
-    python3 manage.py runserver
-#    python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
-  displayName: 'Run site'
+    python3 manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
+  displayName: 'Run Tests'
 
 - task: PublishTestResults@2
   inputs:
