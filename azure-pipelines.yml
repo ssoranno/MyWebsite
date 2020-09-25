@@ -61,15 +61,7 @@ stages:
         sudo ls $(Pipeline.Workspace)/drop
       displayName: 'view output'
 
-- stage: Deploy
-  displayName: Deploy Stage
-  jobs:
-  - job: Deploy
-    displayName: Deploy job
-    pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-
+  
     - task: AzureWebApp@1
       displayName: 'Deploy Azure Web App : {{ webAppName }}'
       inputs:
