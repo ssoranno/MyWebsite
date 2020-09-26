@@ -36,6 +36,7 @@ stages:
       displayName: 'Install prerequisites'
 
     - script: |
+        gunicorn projecttwo.wsgi:application --bind 0.0.0.0:8000
         cd 'projecttwo'
         python3 manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
       displayName: 'Run Tests'
@@ -72,4 +73,4 @@ stages:
         # The following parameter is specific to the Flask example code. You may
         # or may not need a startup command for your app.
 
-        startUpCommand: 'cd site/wwwroot; source /antenv/bin/activate; pip install -r requirements.txt; cd projecttwo; python manage.py runserver'
+        startUpCommand: 'gunicorn projecttwo.wsgi:application --bind 0.0.0.0:8000'
