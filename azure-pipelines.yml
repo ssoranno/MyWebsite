@@ -72,4 +72,4 @@ stages:
         # The following parameter is specific to the Flask example code. You may
         # or may not need a startup command for your app.
 
-#        startUpCommand: 'python manage.py runserver'
+        startUpCommand: 'cd site/wwwroot; source /antenv/bin/activate; pip install -r requirements.txt; cd projecttwo; python manage.py runserver'
